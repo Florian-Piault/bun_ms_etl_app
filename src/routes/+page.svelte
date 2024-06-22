@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import type { Schema } from '$lib/schema.models.js';
+	import type { Definition, Schema } from '$lib/schema.models.js';
 
 	const { data } = $props();
 	let path = $state<string | undefined>('');
@@ -40,10 +40,10 @@
 <article class="border-slate-300 border p-2 rounded md:w-1/2 w-9/12 mx-auto relative">
 	<small class="pl-4 text-xs text-slate-500">Schéma</small>
 	<hr />
-	{@render schema(data.schema)}
+	{@render schema(data.schema.definitions)}
 </article>
 
-{#snippet schema(x: Schema)}
+{#snippet schema(x: Definition[])}
 	<div class="pl-4">
 		{#each x as definition}
 			{#if definition.key !== ''}
@@ -53,8 +53,8 @@
 				</div>
 			{/if}
 
-			{#if Array.isArray(definition.type.subType)}
-				{@render schema(definition.type.subType)}
+			{#if Array.isArray(definition.type.precision)}
+				{@render schema(definition.type.precision)}
 			{/if}
 		{/each}
 	</div>

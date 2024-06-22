@@ -43,7 +43,11 @@ async function getSchema(pipelineData: unknown, path: string) {
 	if (!schemaRes.ok) {
 		return {
 			path,
-			schema: [] as Schema,
+			schema: {
+				table: '',
+				definitions: [],
+				path
+			},
 			info: schema
 		};
 	}
