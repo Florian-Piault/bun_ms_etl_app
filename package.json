@@ -34,7 +34,10 @@
   "type": "module",
   "dependencies": {
     "autoprefixer": "^10.4.19",
+    "clsx": "^2.1.1",
     "postcss": "^8.4.38",
-    "svelte-json-tree": "^2.2.0"
+    "svelte-json-tree": "^2.2.0",
+    "tailwind-merge": "^2.3.0",
+    "tailwind-variants": "^0.2.1"
   }
 }
