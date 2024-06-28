@@ -2,12 +2,12 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import { cn } from '$lib/utils.js';
 
-	type $$Props = HTMLAttributes<HTMLTableSectionElement>;
+	type $$Props = HTMLAttributes<HTMLParagraphElement>;
 
 	let className: $$Props['class'] = undefined;
 	export { className as class };
 </script>
 
-<tbody class={cn('[&_tr:last-child]:border-0', className)} {...$$restProps}>
+<p class={cn('text-sm text-muted-foreground', className)} {...$$restProps}>
 	<slot />
-</tbody>
+</p>
